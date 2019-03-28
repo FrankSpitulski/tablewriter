@@ -12,14 +12,16 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/mattn/go-runewidth"
+	runewidth "github.com/mattn/go-runewidth"
 )
 
 var ansi = regexp.MustCompile("\033\\[(?:[0-9]{1,3}(?:;[0-9]{1,3})*)?[m|K]")
 var slacklink = regexp.MustCompile(`(?U)<.*\|_\*(.*)\*_>`)
 
-func DisplayWidth(str string) int {
-	str = slacklink.ReplaceAllString(str, "$1")
+func DisplayWidth(str string, ignoreSlackLink bool) int {
+	if ignoreSlackLink {
+		str = slacklink.ReplaceAllString(str, "$1")
+	}
 	return runewidth.StringWidth(ansi.ReplaceAllLiteralString(str, ""))
 }
 
@@ -64,8 +66,8 @@ func Title(name string) string {
 
 // Pad String
 // Attempts to place string in the center
-func Pad(s, pad string, width int) string {
-	gap := width - DisplayWidth(s)
+func Pad(s, pad string, width int, ignoreSlackLink bool) string {
+	gap := width - DisplayWidth(s, ignoreSlackLink)
 	if gap > 0 {
 		gapLeft := int(math.Ceil(float64(gap / 2)))
 		gapRight := gap - gapLeft
@@ -76,8 +78,8 @@ func Pad(s, pad string, width int) string {
 
 // Pad String Right position
 // This would place string at the left side of the screen
-func PadRight(s, pad string, width int) string {
-	gap := width - DisplayWidth(s)
+func PadRight(s, pad string, width int, ignoreSlackLink bool) string {
+	gap := width - DisplayWidth(s, ignoreSlackLink)
 	if gap > 0 {
 		return s + strings.Repeat(string(pad), gap)
 	}
@@ -86,8 +88,8 @@ func PadRight(s, pad string, width int) string {
 
 // Pad String Left position
 // This would place string at the right side of the screen
-func PadLeft(s, pad string, width int) string {
-	gap := width - DisplayWidth(s)
+func PadLeft(s, pad string, width int, ignoreSlackLink bool) string {
+	gap := width - DisplayWidth(s, ignoreSlackLink)
 	if gap > 0 {
 		return strings.Repeat(string(pad), gap) + s
 	}

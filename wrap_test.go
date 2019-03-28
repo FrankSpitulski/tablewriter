@@ -50,9 +50,9 @@ func TestDisplayWidth(t *testing.T) {
 	if runewidth.IsEastAsian() {
 		want = 14
 	}
-	if n := DisplayWidth(input); n != want {
+	if n := DisplayWidth(input, false); n != want {
 		t.Errorf("Wants: %d Got: %d", want, n)
 	}
 	input = "\033[43;30m" + input + "\033[00m"
-	checkEqual(t, DisplayWidth(input), want)
+	checkEqual(t, DisplayWidth(input, false), want)
 }

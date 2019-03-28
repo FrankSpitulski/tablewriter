@@ -32,6 +32,7 @@ func NewCSV(writer io.Writer, fileName string, hasHeader bool) (*Table, error) {
 func NewCSVReader(writer io.Writer, csvReader *csv.Reader, hasHeader bool) (*Table, error) {
 	t := NewWriter(writer)
 	t.SetAutoWrapText(false)
+	t.SetIgnoreSlackLink(true)
 	if hasHeader {
 		// Read the first row
 		headers, err := csvReader.Read()
