@@ -31,6 +31,7 @@ func NewCSV(writer io.Writer, fileName string, hasHeader bool) (*Table, error) {
 // See http://golang.org/src/pkg/encoding/csv/reader.go?s=3213:3671#L94
 func NewCSVReader(writer io.Writer, csvReader *csv.Reader, hasHeader bool) (*Table, error) {
 	t := NewWriter(writer)
+	t.SetAutoWrapText(false)
 	if hasHeader {
 		// Read the first row
 		headers, err := csvReader.Read()
