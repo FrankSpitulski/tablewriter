@@ -1,3 +1,3 @@
 module github.com/FrankSpitulski/tablewriter
 
-require github.com/mattn/go-runewidth v0.0.4
+require github.com/FrankSpitulski/go-runewidth v0.0.5

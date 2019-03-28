@@ -1,3 +1,7 @@
+github.com/FrankSpitulski/go-runewidth v0.0.4 h1:dMkLygk5ztRRavCWozi7yyKjHNEYLUeq7F7D0mdvD6k=
+github.com/FrankSpitulski/go-runewidth v0.0.4/go.mod h1:5ITSHc5diUiAdn93adbkd/Ieh5Wv95eqwpOUOuuZMxo=
+github.com/FrankSpitulski/go-runewidth v0.0.5 h1:T+EtEkRzzB1nvCKPCTGiQ+S1bZ2Q6B/Q6rR+iPYeNuE=
+github.com/FrankSpitulski/go-runewidth v0.0.5/go.mod h1:N9e+34d5Od0oejtK9IfhyL1WPOhT+UKBaL27z/8vyPk=
 github.com/mattn/go-runewidth v0.0.4 h1:2BvfKmzob6Bmd4YsL0zygOqfdFnK7GR4QL06Do4/p7Y=
 github.com/mattn/go-runewidth v0.0.4/go.mod h1:LwmH8dsx7+W8Uxz3IHJYH5QSwggIsqBzpuz5H//U1FU=
 github.com/olekukonko/tablewriter v0.0.1 h1:b3iUnf1v+ppJiOfNX4yxxqfWKMQPZR5yoh8urCTFX88=

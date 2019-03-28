@@ -11,7 +11,7 @@ import (
 	"math"
 	"strings"
 
-	"github.com/mattn/go-runewidth"
+	runewidth "github.com/FrankSpitulski/go-runewidth"
 )
 
 var (

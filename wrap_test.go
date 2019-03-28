@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/mattn/go-runewidth"
+	runewidth "github.com/FrankSpitulski/go-runewidth"
 )
 
 var text = "The quick brown fox jumps over the lazy dog."
