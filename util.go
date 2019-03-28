@@ -16,8 +16,10 @@ import (
 )
 
 var ansi = regexp.MustCompile("\033\\[(?:[0-9]{1,3}(?:;[0-9]{1,3})*)?[m|K]")
+var slacklink = regexp.MustCompile(`(?U)<.*\|_\*(.*)\*_>`)
 
 func DisplayWidth(str string) int {
+	str = slacklink.ReplaceAllLiteralString(str, "$1")
 	return runewidth.StringWidth(ansi.ReplaceAllLiteralString(str, ""))
 }
 
